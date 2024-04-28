@@ -66,6 +66,22 @@ class Level(TileMap):
                 return True
             
         return False
+    
+    def draw(self, materials, window, window_size):
+        for x in range(self.size[0]):
+            for y in range(self.size[1]):
+                if (x >= 0
+                        and x < self.size[0]
+                        and y >= 0
+                        and y < self.size[1]
+                        and self.tiles[x][y] > 0):
+                    window.display(materials[self.tiles[x][y]],
+                                (x*self.pixel, y*self.pixel))
+        for i in self.endpoints:
+            window.display(materials[2], (i[0]*self.pixel, i[1]*self.pixel - 16))
+        
+        window.display(materials[2], (int(self.spawnpoint[0]*self.pixel), int(self.spawnpoint[1]*self.pixel - 16)))
+                    
                 
 class Graphics:
     
@@ -81,6 +97,8 @@ class Graphics:
     def draw(self, tilemap, player):
         config_manager = ConfigManager()
         self.window.fill(background_colour)
+        self.display(config_manager.get_param_value("Materials")[4],(0,0))
+        
         
         tilemap.draw(config_manager.get_param_value("Materials"),
                           self,
@@ -275,11 +293,12 @@ class Game:
                     
         keys = pygame.key.get_pressed()
         if keys[pygame.K_r]:
-            self.tilemap.monsters = []       
+            self.tilemap.monsters = []
+            #self.player.coordinates = self.tilemap.spawnpoint
             
         self.player.update(self.tilemap)
         self.tilemap.update(self.player)
-        for i in self.monsters:
+        for i in self.tilemap.monsters:
             i.update(self.tilemap)
         
         self.window.draw(self.tilemap, self.player)
@@ -289,10 +308,11 @@ class Game:
 mats = []
 pixel = 16
 game = Game("Test game !", (width, height), mats, pixel)
-mats.append(pygame.transform.scale(pygame.image.load('tile1.png').convert(), (pixel,pixel)))
-mats.append(pygame.transform.scale(pygame.image.load('tile1.png').convert(), (pixel,pixel)))
-mats.append(pygame.transform.scale(pygame.image.load('elements.png').convert(), (pixel,pixel)))
-mats.append(pygame.transform.scale(pygame.image.load('venti1.jpg').convert(), (pixel,pixel)))
+mats.append(pygame.transform.scale(pygame.image.load('player.png'), (pixel,pixel)))
+mats.append(pygame.transform.scale(pygame.image.load('tile2.png'), (pixel,pixel)))
+mats.append(pygame.image.load('sign.png'))
+mats.append(pygame.transform.scale(pygame.image.load('bullet.png'), (pixel,pixel)))
+mats.append(pygame.image.load('background.png'))
 clock = pygame.time.Clock()
 
 running = True
