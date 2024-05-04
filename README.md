@@ -127,7 +127,7 @@ class Level(TileMap):
 ```
 <p>The class "Level" inherit from the class "TileMap".</p>
 
-<h3>3. Use at least 2 design patterns</h3>
+<h3>Use at least 2 design patterns</h3>
 <h4>Singleton</h4>
 
 ```PYTHON
