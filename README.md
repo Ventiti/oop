@@ -46,8 +46,6 @@ class ConfigManager:
 ```
 <p>The class "ConfigManager" contains two protected arguments.</p>
 
-<h2>Explain how the program covers (implements) functional requirements</h2>
-
 <h4>Data abstraction and Polymorphism</h4>
 
 ```PYTHON
@@ -193,9 +191,9 @@ class Graphics:
 
 <h3>Results and Summary</h3>
 
-<p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with obstacles.
-- Implementing game features such as enemy behavior was an enjoyable experience.
+<p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with obstacles.<br>
+- Implementing game features such as enemy behavior was an enjoyable experience.<br>
 - Despite these challenges, overcoming them resulted in a rewarding learning experience, honing skills in game development, problem-solving, and Python programming.</p>
 <h4>How it would be possible to extend your application ?</h4>
-<p>- Implementing a multi-level feature could be a great idea.
+<p>- Implementing a multi-level feature could be a great idea.<br>
 - Implementing more enemies and bosses.</p>
