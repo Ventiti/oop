@@ -130,6 +130,8 @@ class Level(TileMap):
 <h3>Use at least 2 design patterns</h3>
 <h4>Singleton</h4>
 
+<p>The Singleton design pattern is a creational pattern that ensures a class has only one instance and provides a global point of access to that instance. In Python, the Singleton pattern can be implemented using various approaches. One common approach is to use a class variable to store the instance and a class method to access it.</p>
+
 ```PYTHON
 class ConfigManager:
     _instance = None
@@ -151,7 +153,11 @@ class ConfigManager:
         return cls._config[string]
 ```
 
+<p>This pattern ensures that only one instance of the class is created throughout the program's execution, making it suitable for scenarios where exactly one instance of a class is needed, such as managing shared resources or configuration settings.</p>
+
 <h4>Decorator</h4>
+
+<p>The Decorator design pattern is a structural pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. In Python, decorators are functions that modify the behavior of other functions or methods.</p>
 
 ```PYTHON
 class Graphics:
@@ -188,6 +194,9 @@ class Graphics:
         
         pygame.display.flip()
 ```
+
+<p>Both function and class decorators provide a powerful way to extend or modify the behavior of functions and methods in Python without altering their original code. They are commonly used for tasks such as logging, caching, authentication, and more.</p>
+
 <h3>Reading from file & writing to file</h3>
 
 <p>When the program is closed, it automatically saves the game state in the "level.pkl" file. Upon restarting, the program reloads the game state from this file, allowing the player to resume from where they left off. This functionality ensures that progress is preserved even if the program is closed unexpectedly.</p>
