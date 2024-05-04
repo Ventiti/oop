@@ -188,13 +188,16 @@ class Graphics:
         
         pygame.display.flip()
 ```
+<h3>Reading from file & writing to file</h3>
 
-<h3>Results and Summary</h3>
+<p>When the program is closed, it automatically saves the game state in the "level.pkl" file. Upon restarting, the program reloads the game state from this file, allowing the player to resume from where they left off. This functionality ensures that progress is preserved even if the program is closed unexpectedly.</p>
+
+<h2>Results and Summary</h2>
 
 <p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with enemies.<br>
 - Implementing game features such as enemy behavior was an enjoyable experience.<br>
 - Despite these challenges, overcoming them resulted in a rewarding learning experience, increasing my skills in game development, problem-solving, and Python programming.</p>
 <h4>How it would be possible to extend your application ?</h4>
 <p>- Implementing a multi-level feature could be a great idea.<br>
-- Implementing more enemies and bosses.
+- Implementing more enemies and bosses.<br>
 - Implementing a menu to select level to load.</p>
