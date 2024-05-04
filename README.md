@@ -191,9 +191,10 @@ class Graphics:
 
 <h3>Results and Summary</h3>
 
-<p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with obstacles.<br>
+<p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with enemies.<br>
 - Implementing game features such as enemy behavior was an enjoyable experience.<br>
-- Despite these challenges, overcoming them resulted in a rewarding learning experience, honing skills in game development, problem-solving, and Python programming.</p>
+- Despite these challenges, overcoming them resulted in a rewarding learning experience, increasing my skills in game development, problem-solving, and Python programming.</p>
 <h4>How it would be possible to extend your application ?</h4>
 <p>- Implementing a multi-level feature could be a great idea.<br>
-- Implementing more enemies and bosses.</p>
+- Implementing more enemies and bosses.
+- Implementing a menu to select level to load.</p>
