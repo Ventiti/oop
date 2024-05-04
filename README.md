@@ -45,3 +45,62 @@ class ConfigManager:
         return cls._config[string]
 ```
 <p>The class "ConfigManager" contains two protected arguments.</p>
+
+<h2>Explain how the program covers (implements) functional requirements</h2>
+
+<h4>Data abstraction</h4>
+
+```PYTHON
+class Entity(ABC):
+
+    def __init__(self, name, health, coordinates):
+        pass
+
+    @abstractmethod
+    def move(self, coordinates, tilemap):
+        pass
+    
+    @abstractmethod
+    def damage(self):
+        pass
+    
+    @abstractmethod
+    def update(self):
+        pass
+    
+class Player(Entity):
+
+    def __init__(self, health, coordinates):
+        pass
+
+    def move(self, position, tilemap):
+        pass
+
+
+    def damage(self):
+        pass
+    
+    def draw(self, materials, window, window_size, pixel):
+        pass
+    
+    def update(self, tilemap):
+        pass
+            
+class Monster(Entity):
+
+    def __init__(self, health, coordinates, sprite):
+        pass
+
+    def move(self, position, tilemap):
+        pass
+
+    def damage(self):
+        pass
+    
+    def draw(self, materials, window, window_size, pixel):
+        pass
+    
+    def update(self, tilemap):
+        pass
+```
+<p>The class "Player" and "Monster" inherit from the abstract class "Entity".</p>
