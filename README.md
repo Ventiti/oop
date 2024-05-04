@@ -24,7 +24,7 @@ To delete all monsters, press the R key.</p>
 <h3>4 OOP pillars, their meaning, and usage (in code and overall)</h3>
 <h4>Encapsulation</h4>
 
-```
+```PYTHON
 class ConfigManager:
     _instance = None
     _config = {}
@@ -44,3 +44,4 @@ class ConfigManager:
     def get_param_value(cls, string):
         return cls._config[string]
 ```
+<p>The class "ConfigManager" contains two protected arguments.</p>
