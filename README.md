@@ -17,7 +17,7 @@ To place a block, right-click; to remove it, left-click. (If the block is placed
 You can place a monster wherever you want by doing a middle mouse click.<br>
 To delete all monsters, press the R key.</p>
 
-<h1>Body</h1>
+<h1>Body/Analysis</h1>
 
 <h2>Explain how the program covers (implements) functional requirements</h2>
 
@@ -201,7 +201,7 @@ class Graphics:
 
 <p>When the program is closed, it automatically saves the game state in the "level.pkl" file. Upon restarting, the program reloads the game state from this file, allowing the player to resume from where they left off. This functionality ensures that progress is preserved even if the program is closed unexpectedly.</p>
 
-<h2>Results and Summary</h2>
+<h1>Results and Summary</h1>
 
 <p>- Implementing a Mario-like game in Python posed several challenges, such as collision detection with enemies.<br>
 - Implementing game features such as enemy behavior was an enjoyable experience.<br>
