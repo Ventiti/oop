@@ -155,9 +155,9 @@ class ConfigManager:
 
 <p>This pattern ensures that only one instance of the class is created throughout the program's execution, making it suitable for scenarios where exactly one instance of a class is needed, such as managing shared resources or configuration settings.</p>
 
-<h4>Decorator</h4>
+<h4>Wrapper</h4>
 
-<p>The Decorator design pattern is a structural pattern that allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. In Python, decorators are functions that modify the behavior of other functions or methods.</p>
+<p>The Wrapper design pattern, also known as the Adapter pattern, is a structural pattern that allows incompatible interfaces to work together. In Python, the Wrapper pattern is often used to adapt the interface of one class to another interface expected by the client code.</p>
 
 ```PYTHON
 class Graphics:
@@ -195,7 +195,7 @@ class Graphics:
         pygame.display.flip()
 ```
 
-<p>Both function and class decorators provide a powerful way to extend or modify the behavior of functions and methods in Python without altering their original code. They are commonly used for tasks such as logging, caching, authentication, and more.</p>
+<p>The Wrapper pattern allows you to use existing classes with incompatible interfaces in your codebase without the need for modifications, thus promoting code reusability and flexibility.</p>
 
 <h3>Reading from file & writing to file</h3>
 
