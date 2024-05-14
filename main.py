@@ -1,6 +1,7 @@
 import pygame
 import pickle
 import math
+import os
 from abc import ABC, abstractmethod
 
 pygame.init()
@@ -63,7 +64,7 @@ class Level(TileMap):
           
         for i in self.endpoints:
             if (int(player.coordinates[0]) == i[0] and int(player.coordinates[1]) == i[1]):
-                return True
+                return i[2]
             
         return False
     
@@ -272,6 +273,14 @@ class Game:
         self.config_manager.set_param_value("Materials", materials)
         self.config_manager.set_param_value("Pixel", tile_size)
         
+    def load(self, level):
+        if (os.path.exists(level)):
+            with open(level, 'rb') as file:
+                self.tilemap = pickle.load(file)
+            self.player = Player(1,self.tilemap.spawnpoint)
+        elif level != "":
+            print(level)
+        
     def update(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -297,34 +306,38 @@ class Game:
             #self.player.coordinates = self.tilemap.spawnpoint
             
         self.player.update(self.tilemap)
-        self.tilemap.update(self.player)
+        tmp = self.tilemap.update(self.player)
         for i in self.tilemap.monsters:
             i.update(self.tilemap)
         
         self.window.draw(self.tilemap, self.player)
         
+        if tmp != False:
+            self.load(tmp)
+        
         return True
 
-mats = []
-pixel = 16
-game = Game("Test game !", (width, height), mats, pixel)
-mats.append(pygame.transform.scale(pygame.image.load('player.png'), (pixel,pixel)))
-mats.append(pygame.transform.scale(pygame.image.load('tile2.png'), (pixel,pixel)))
-mats.append(pygame.image.load('sign.png'))
-mats.append(pygame.transform.scale(pygame.image.load('bullet.png'), (pixel,pixel)))
-mats.append(pygame.image.load('background.png'))
-clock = pygame.time.Clock()
+if __name__ == '__main__':
+    mats = []
+    pixel = 16
+    game = Game("Test game !", (width, height), mats, pixel)
+    mats.append(pygame.transform.scale(pygame.image.load('player.png'), (pixel,pixel)))
+    mats.append(pygame.transform.scale(pygame.image.load('tile2.png'), (pixel,pixel)))
+    mats.append(pygame.image.load('sign.png'))
+    mats.append(pygame.transform.scale(pygame.image.load('bullet.png'), (pixel,pixel)))
+    mats.append(pygame.image.load('background.png'))
+    clock = pygame.time.Clock()
 
-running = True
-while running:
-    running = game.update()
-    clock.tick(75)
+    running = True
+    while running:
+        running = game.update()
+        clock.tick(75)
     
-game.tilemap.spawnpoint = game.player.coordinates
-with open('level.pkl', 'wb') as file:
-    pickle.dump(game.tilemap, file)
+    game.tilemap.spawnpoint = game.player.coordinates
+    with open('level.pkl', 'wb') as file:
+        pickle.dump(game.tilemap, file)
     
-pygame.display.quit()
-pygame.quit()
-quit()
+    pygame.display.quit()
+    pygame.quit()
+    quit()
         
